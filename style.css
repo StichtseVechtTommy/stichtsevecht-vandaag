@@ -948,6 +948,10 @@ a.agenda-event:hover .agenda-arrow {
   text-decoration: underline;
 }
 
+/* ═══════════ SUBPAGINA PAGE-HERO ═══════════ */
+.page-hero { padding: 18px 0 14px !important; margin-bottom: 20px !important; }
+.page-hero h1 { font-size: 26px !important; }
+
 /* ═══════════ DARK MODE ═══════════ */
 body.dark-mode {
   --bg:        #111a24;
