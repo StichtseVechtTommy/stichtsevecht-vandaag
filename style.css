@@ -107,9 +107,13 @@ button {
 }
 
 .brand-logo {
-  height: 36px;
+  height: 44px;
   width: auto;
   flex-shrink: 0;
+}
+
+body.dark-mode .brand-logo {
+  filter: brightness(0) invert(1);
 }
 
 .brand-accent {
