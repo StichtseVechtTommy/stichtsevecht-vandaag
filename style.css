@@ -948,9 +948,30 @@ a.agenda-event:hover .agenda-arrow {
   text-decoration: underline;
 }
 
-/* ═══════════ SUBPAGINA PAGE-HERO ═══════════ */
-.page-hero { padding: 18px 0 14px !important; margin-bottom: 20px !important; }
-.page-hero h1 { font-size: 26px !important; }
+/* ═══════════ SUBPAGINA PAGE-HERO — NOS-stijl ═══════════ */
+/* Compact kopje dat direct aansluit op de nav */
+.page-hero {
+  padding: 16px 0 12px !important;
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.page-hero h1 {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--text) !important;
+}
+.page-hero p {
+  font-size: 12.5px !important;
+  color: var(--text-mute) !important;
+  margin-top: 3px !important;
+}
+
+/* Subpagina's: minder gap en padding-top dan vandaag */
+.main-content:has(.page-hero) {
+  gap: 20px !important;
+  padding-top: 0 !important;
+}
 
 /* ═══════════ DARK MODE ═══════════ */
 body.dark-mode {
