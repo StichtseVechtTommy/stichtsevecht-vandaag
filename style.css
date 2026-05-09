@@ -453,9 +453,9 @@ button {
   padding-top: 0;
 }
 .verkeer-sectie-titel {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 500;
-  color: var(--text-soft);
+  color: var(--accent);
   letter-spacing: 0.01em;
 }
 
