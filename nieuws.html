@@ -67,12 +67,17 @@
       color: var(--text-mute);
       cursor: pointer;
       transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
     }
     .filter-btn.active,
     .filter-btn:hover {
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
+    }
+    @media (max-width: 600px) {
+      .filter-bar { gap: 5px; }
+      .filter-btn { font-size: 9.5px; padding: 3px 8px; letter-spacing: 0.03em; }
     }
   </style>
 </head>
@@ -124,7 +129,6 @@
       <button class="filter-btn" data-cat="economie">Economie</button>
       <button class="filter-btn" data-cat="cultuur">Cultuur</button>
       <button class="filter-btn" data-cat="politiek">Politiek</button>
-      <button class="filter-btn" data-cat="sport">Sport</button>
     </div>
 
     <!-- Nieuws-lijst (gevuld door JS) -->
@@ -149,7 +153,7 @@
     /* ── Nieuws-pagina logica ── */
     const CAT_LABELS_PAGE = {
       verkeer: "Verkeer", cultuur: "Cultuur", economie: "Economie",
-      dorpsleven: "Dorpsleven", politiek: "Politiek", sport: "Sport"
+      dorpsleven: "Dorpsleven", politiek: "Politiek"
     };
 
     let allNewsItems = [];
