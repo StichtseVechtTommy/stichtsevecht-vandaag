@@ -102,9 +102,10 @@ window.BREUKELEN_NEWS = [
 ];
 
 window.BREUKELEN_FOTO_WEEK = {
-  "url": "",
-  "caption": "Breukelen aan de Vecht",
-  "credit": ""
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Breukelen_-_Kortrijkse_molen_-_panoramio.jpg/1200px-Breukelen_-_Kortrijkse_molen_-_panoramio.jpg",
+  "caption": "De Kortrijkse molen in Breukelen, langs de Vecht",
+  "credit": "Foto: Rokus C / CC BY 3.0",
+  "lastUpdated": "2026-05-09"
 };
 
 window.BREUKELEN_FEITJES = [
@@ -242,13 +243,4 @@ window.BREUKELEN_SPORT = [
   },
   {
     "club": "MHC Breukelen D1",
-    "opponent": "HC Pinoke D2",
-    "score_home": 4,
-    "score_away": 2,
-    "home": true,
-    "competition": "Regio Utrecht Dames",
-    "date": "2026-05-03",
-    "source_url": "https://www.knhb.nl"
-  }
-];
-                                    
+    "op
