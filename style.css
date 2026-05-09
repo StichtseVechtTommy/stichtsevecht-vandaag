@@ -1066,6 +1066,13 @@ body.dark-mode .agenda-date-block       { background: #0c1520; }
   /* Nieuws-thumbnails iets kleiner */
   .news-thumb { width: 88px; height: 70px; }
 
+  /* Nieuwskoppen volledig tonen, niet afkappen */
+  .news-row-title {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+
   /* Agenda: 1 kolom */
   .agenda-events { grid-template-columns: 1fr; gap: 10px; }
 
