@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stichtse Vecht Vandaag — lokaal nieuws aan de Vecht</title>
+  <meta name="description" content="Het laatste nieuws, het weer en de agenda voor de gemeente Stichtse Vecht. Snel te bekijken — binnen een paar minuten weet je wat er speelt." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stichtse Vecht Vandaag" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:title" content="Stichtse Vecht Vandaag — lokaal nieuws aan de Vecht" />
+  <meta property="og:description" content="Het laatste nieuws, het weer en de agenda voor de gemeente Stichtse Vecht. Snel te bekijken — binnen een paar minuten weet je wat er speelt." />
+  <meta property="og:url" content="https://stichtsevechtvandaag.nl/" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bethunpolder_in_Stichtse_Vecht.jpg/1280px-Bethunpolder_in_Stichtse_Vecht.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="#">Stichtse Vecht <span class="brand-accent">Vandaag</span></a>
+      <div class="header-right">
+        <span class="header-date" id="header-date"></span>
+        <a class="weather-pill" id="weather-pill" href="weer.html">
+          <span class="weather-pill-icon" id="wp-icon">·</span>
+          <span id="wp-temp">—</span><span class="weather-unit">°</span>
+          <span class="weather-pill-sep">·</span>
+          <span class="weather-pill-desc" id="wp-desc">laden…</span>
+        </a>
+        <button class="dark-mode-btn" id="dark-mode-btn" aria-label="Donkere modus">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <nav class="site-nav">
+    <div class="nav-inner container">
+      <ul class="nav-tabs">
+        <li><a href="index.html"          class="nav-tab active">vandaag</a></li>
+        <li><a href="nieuws.html"         class="nav-tab">nieuws</a></li>
+        <li><a href="sport.html"          class="nav-tab">sport</a></li>
+        <li><a href="agenda.html"         class="nav-tab">agenda</a></li>
+        <li><a href="fotos.html"          class="nav-tab">foto's</a></li>
+        <li><a href="vechtweetjes.html"   class="nav-tab">vechtweetjes</a></li>
+        <li><a href="weer.html"           class="nav-tab">weer</a></li>
+      </ul>
+      <a href="mailto:redactie@stichtsevechtvandaag.nl" class="tip-btn">+ tip de redactie</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+
+    <!-- ═══════════════════════════════════════
+         HERO — uitgelicht artikel
+    ═══════════════════════════════════════ -->
+    <section class="hero" id="hero-section" aria-label="Uitgelicht artikel">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo" id="hero-photo">
+          <span class="hero-date-pill" id="hero-date-pill">vandaag</span>
+        </div>
+      </div>
+      <div class="hero-text">
+        <span class="hero-kicker" id="hero-kicker">NIEUWS</span>
+        <h2 class="hero-title" id="hero-title">Nieuws wordt geladen…</h2>
+        <p class="hero-summary" id="hero-summary"></p>
+        <p class="hero-meta" id="hero-meta"></p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         VERDER IN HET NIEUWS
+    ═══════════════════════════════════════ -->
+    <section class="more-news" id="meer-nieuws" aria-labelledby="meer-nieuws-titel">
+      <h2 class="section-title" id="meer-nieuws-titel">Verder in het nieuws</h2>
+      <div class="news-grid" id="news-grid">
+        <!-- Gevuld door script.js -->
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         BENTO-GRID
+    ═══════════════════════════════════════ -->
+    <section class="bento" aria-label="Widgets">
+
+      <!-- Foto van de week -->
+      <div class="bento-cell bento-foto" id="fotos-section">
+        <div class="bento-foto-img" id="foto-wk-img"></div>
+        <div class="bento-foto-caption">
+          <div>
+            <p class="foto-label">FOTO VAN DE WEEK</p>
+            <p class="foto-title" id="foto-wk-title">—</p>
+          </div>
+          <span class="foto-credit" id="foto-wk-credit"></span>
+        </div>
+      </div>
+
+      <!-- Verkeer & verstoringen -->
+      <div class="bento-cell bento-verkeer" id="verkeer-section">
+        <h3 class="bento-label">Verkeer &amp; verstoringen</h3>
+        <!-- Kopje boven de kaart -->
+        <div class="verkeer-row">
+          <span class="verkeer-name">Verkeer · Stichtse Vecht regio</span>
+          <a href="https://www.waze.com/ul?ll=52.17,4.97&navigate=no&zoom=10" target="_blank" rel="noopener" class="ns-storingen-link">Open in Waze →</a>
+        </div>
+        <!-- Waze live verkeerskaart — wrapper knipt header/footer weg -->
+        <div class="verkeer-map-wrapper">
+          <iframe
+            id="verkeer-map"
+            src="https://embed.waze.com/iframe?zoom=11&lat=52.17&lon=4.97&ct=livemap"
+            title="Live verkeerskaart Stichtse Vecht"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <!-- NS storingen -->
+        <div class="ns-storingen-block">
+          <div class="verkeer-row">
+            <span class="verkeer-name">NS · Stichtse Vecht regio</span>
+            <a href="https://www.ns.nl/storingen" target="_blank" rel="noopener" class="ns-storingen-link">alle storingen →</a>
+          </div>
+          <div id="ns-storingen"><!-- gevuld door script.js --></div>
+        </div>
+      </div>
+
+      <!-- Sport -->
+      <div class="bento-cell bento-sport" id="sport-section">
+        <h3 class="bento-label">Sport dit weekend</h3>
+        <ul class="sport-list" id="sport-list">
+          <!-- Gevuld door script.js -->
+        </ul>
+        <p class="bento-footnote">
+          <a href="sport.html">Meer sport →</a>
+        </p>
+      </div>
+
+      <!-- Vechtweetje -->
+      <div class="bento-cell bento-feitje" id="feitje-section">
+        <p class="feitje-label">Vechtweetje van de dag</p>
+        <p class="feitje-text" id="feitje-text">Wist je dat de stad Brooklyn in New York vernoemd is naar Breukelen?</p>
+      </div>
+
+      <!-- Tip de redactie -->
+      <div class="bento-cell bento-tip">
+        <p class="tip-top-label">TIP DE REDACTIE</p>
+        <p class="tip-body">Weet jij iets wat Breukelen moet weten?</p>
+        <a href="mailto:redactie@stichtsevechtvandaag.nl" class="tip-arrow" aria-label="Stuur een tip">→</a>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         AGENDA
+    ═══════════════════════════════════════ -->
+    <section class="agenda-strip" id="agenda-section" aria-labelledby="agenda-titel">
+      <h2 class="section-title" id="agenda-titel">Agenda</h2>
+      <div class="agenda-events" id="agenda-events">
+        <!-- Gevuld door script.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Stichtse Vecht Vandaag · gemaakt voor de gemeente aan de Vecht</p>
+      <p class="footer-meta">
+        <a href="#">Aanmelden voor de ochtendmail</a>
+        &nbsp;·&nbsp; Weergegevens via <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>
+        &nbsp;·&nbsp; Een onafhankelijke lokale nieuwssite
+      </p>
+    </div>
+  </footer>
+
+  <script src="data/data.js"></script>
+  <script src="data/sport-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

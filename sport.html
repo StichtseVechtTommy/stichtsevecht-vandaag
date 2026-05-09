@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sport — Stichtse Vecht Vandaag</title>
+  <meta name="description" content="Sportnieuws, sportagenda en lokale clubs in de gemeente Stichtse Vecht." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stichtse Vecht Vandaag" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:title" content="Sport — Stichtse Vecht Vandaag" />
+  <meta property="og:description" content="Sportnieuws, sportagenda en lokale clubs in de gemeente Stichtse Vecht." />
+  <meta property="og:url" content="https://stichtsevechtvandaag.nl/sport.html" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bethunpolder_in_Stichtse_Vecht.jpg/1280px-Bethunpolder_in_Stichtse_Vecht.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { padding: 32px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+    .page-hero h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.025em; color: var(--text); }
+    .page-hero p  { font-size: 14px; color: var(--text-mute); margin-top: 6px; }
+
+    /* ── Sectie-labels ── */
+    .sport-section { margin-bottom: 40px; }
+    .sport-section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sport-section-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--text);
+    }
+    .sport-section-sub {
+      font-size: 12px;
+      color: var(--text-mute);
+    }
+
+    /* ── Sportnieuws-kaarten ── */
+    .sport-news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 640px) { .sport-news-grid { grid-template-columns: 1fr; } }
+
+    .sport-news-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .sport-news-card:hover { border-color: var(--accent); background: var(--accent-bg); }
+
+    .sport-news-card-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sport-cat-pill {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .sport-cat-pill.hockey  { background: #f0e8f5; color: #7a2d9e; }
+    .sport-cat-pill.tennis  { background: #fef3e0; color: #a06000; }
+    .sport-cat-pill.voetbal { background: var(--accent-bg); color: var(--accent); }
+
+    .sport-news-club {
+      font-size: 11.5px;
+      color: var(--text-mute);
+    }
+    .sport-news-title {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .sport-news-summary {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+    .sport-news-meta {
+      font-size: 11.5px;
+      color: var(--text-mute);
+      margin-top: 4px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .sport-news-meta a { color: var(--accent); text-decoration: none; }
+    .sport-news-meta a:hover { text-decoration: underline; }
+
+    /* ── Sport dit weekend ── */
+    .sport-agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sport-agenda-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .sport-agenda-row:first-child { border-top: 1px solid var(--border); }
+    a.sport-agenda-row {
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+    a.sport-agenda-row:hover { background: var(--accent-bg); padding-left: 8px; padding-right: 8px; margin: 0 -8px; }
+
+    .sport-agenda-date-block {
+      flex-shrink: 0;
+      text-align: center;
+      min-width: 44px;
+    }
+    .sport-agenda-dag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+    .sport-agenda-dag-num {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .sport-agenda-dag-maand {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+    .sport-agenda-time {
+      font-size: 11px;
+      color: var(--text-mute);
+      margin-top: 2px;
+    }
+
+    .sport-agenda-info { flex: 1; }
+    .sport-agenda-event {
+      font-size: 14.5px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .sport-agenda-meta {
+      font-size: 12px;
+      color: var(--text-mute);
+      margin-top: 3px;
+    }
+
+    .sport-agenda-link {
+      font-size: 17px;
+      color: var(--accent);
+      text-decoration: none;
+      opacity: 0.5;
+      flex-shrink: 0;
+      transition: opacity 0.15s;
+    }
+    .sport-agenda-link:hover { opacity: 1; }
+
+    /* ── Lokale clubs ── */
+    .sport-clubs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .sport-club-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s;
+    }
+    .sport-club-card:hover { border-color: var(--accent); }
+    .sport-club-name {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .sport-club-sport-loc {
+      font-size: 11.5px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .sport-club-desc {
+      font-size: 12.5px;
+      color: var(--text-soft);
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+    .sport-club-link-label {
+      font-size: 11px;
+      color: var(--text-mute);
+      margin-top: 6px;
+    }
+
+    /* ── Uitslagen-placeholder ── */
+    .sport-uitslagen-placeholder {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      padding: 24px 28px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .sport-uitslagen-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      opacity: 0.4;
+    }
+    .sport-uitslagen-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .sport-uitslagen-body {
+      font-size: 13px;
+      color: var(--text-mute);
+      line-height: 1.55;
+    }
+    .sport-uitslagen-opties {
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--text-mute);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .sport-uitslagen-opties span::before { content: "· "; }
+
+    /* ── Mockdata-disclaimer ── */
+    .mockdata-notice {
+      font-size: 11.5px;
+      color: var(--text-mute);
+      background: var(--accent-bg);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Stichtse Vecht <span class="brand-accent">Vandaag</span></a>
+      <div class="header-right">
+        <span class="header-date" id="header-date"></span>
+        <a class="weather-pill" id="weather-pill" href="weer.html">
+          <span class="weather-pill-icon" id="wp-icon">·</span>
+          <span id="wp-temp">—</span><span class="weather-unit">°</span>
+          <span class="weather-pill-sep">·</span>
+          <span class="weather-pill-desc" id="wp-desc">laden…</span>
+        </a>
+        <button class="dark-mode-btn" id="dark-mode-btn" aria-label="Donkere modus">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="nav-inner container">
+      <ul class="nav-tabs">
+        <li><a href="index.html"          class="nav-tab">vandaag</a></li>
+        <li><a href="nieuws.html"         class="nav-tab">nieuws</a></li>
+        <li><a href="sport.html"          class="nav-tab active">sport</a></li>
+        <li><a href="agenda.html"         class="nav-tab">agenda</a></li>
+        <li><a href="fotos.html"          class="nav-tab">foto's</a></li>
+        <li><a href="vechtweetjes.html"   class="nav-tab">vechtweetjes</a></li>
+        <li><a href="weer.html"           class="nav-tab">weer</a></li>
+      </ul>
+      <a href="mailto:redactie@stichtsevechtvandaag.nl" class="tip-btn">+ tip de redactie</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+
+    <div class="page-hero">
+      <h1>Sport</h1>
+      <p>Sportnieuws, agenda en lokale clubs in de gemeente Stichtse Vecht</p>
+    </div>
+
+    <!-- ── 1. Sportnieuws ── -->
+    <section class="sport-section">
+      <div class="sport-section-header">
+        <h2 class="sport-section-title">Sportnieuws</h2>
+        <span class="sport-section-sub">Lokale sportberichten</span>
+      </div>
+      <p class="mockdata-notice">Voorbeelddata · wordt later vervangen door echte bronnen</p>
+      <div class="sport-news-grid" id="sport-news-grid">
+        <!-- Gevuld door JS -->
+      </div>
+    </section>
+
+    <!-- ── 2. Sport dit weekend ── -->
+    <section class="sport-section">
+      <div class="sport-section-header">
+        <h2 class="sport-section-title">Sport dit weekend</h2>
+        <span class="sport-section-sub">Aankomende wedstrijden en activiteiten</span>
+      </div>
+      <p class="mockdata-notice">Voorbeelddata · wordt later vervangen door echte bronnen</p>
+      <div class="sport-agenda-list" id="sport-agenda-list">
+        <!-- Gevuld door JS -->
+      </div>
+    </section>
+
+    <!-- ── 3. Lokale clubs ── -->
+    <section class="sport-section">
+      <div class="sport-section-header">
+        <h2 class="sport-section-title">Lokale clubs in beeld</h2>
+        <span class="sport-section-sub">Sportverenigingen in Stichtse Vecht</span>
+      </div>
+      <div class="sport-clubs-grid" id="sport-clubs-grid">
+        <!-- Gevuld door JS -->
+      </div>
+    </section>
+
+    <!-- ── 4. Uitslagen (placeholder) ── -->
+    <section class="sport-section">
+      <div class="sport-section-header">
+        <h2 class="sport-section-title">Uitslagen</h2>
+      </div>
+      <div class="sport-uitslagen-placeholder">
+        <div class="sport-uitslagen-icon">🏆</div>
+        <div>
+          <p class="sport-uitslagen-title">Uitslagen volgen later</p>
+          <p class="sport-uitslagen-body">
+            We werken aan een manier om officiële wedstrijduitslagen van lokale clubs te tonen.
+            Dat doen we zorgvuldig — met toestemming van de clubs en gebaseerd op openbare data.
+          </p>
+          <div class="sport-uitslagen-opties">
+            <span>Mogelijke aanpak: clubsite-widgets</span>
+            <span>Mogelijke aanpak: samenwerking met KNVB / KNHB</span>
+            <span>Mogelijke aanpak: clubs leveren uitslagen zelf aan</span>
+            <span>Mogelijke aanpak: handmatige invoer na toestemming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Stichtse Vecht Vandaag · gemaakt voor de gemeente aan de Vecht</p>
+      <p class="footer-meta">
+        <a href="#">Aanmelden voor de ochtendmail</a>
+        &nbsp;·&nbsp; Weergegevens via <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="data/data.js"></script>
+  <script src="data/sport-data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const DAYS_NL_FULL = ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
+    const MONTHS_NL_KORT = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+
+    /* ── Sportnieuws ── */
+    function renderSportNieuws(items) {
+      const grid = document.getElementById("sport-news-grid");
+      if (!grid || !items || items.length === 0) return;
+      grid.innerHTML = "";
+      for (const item of items) {
+        const date = new Date(item.date);
+        const dateStr = `${date.getDate()} ${MONTHS_NL_KORT[date.getMonth()]}`;
+        const catClass = item.category || "algemeen";
+        const card = document.createElement(item.source_url ? "a" : "div");
+        card.className = "sport-news-card";
+        if (item.source_url) { card.href = item.source_url; card.target = "_blank"; card.rel = "noopener"; }
+
+        const content = document.createElement("div");
+        content.innerHTML = `
+          <div class="sport-news-card-top">
+            <span class="sport-cat-pill ${catClass}">${item.category || "Sport"}</span>
+            ${item.club ? `<span class="sport-news-club">${item.club}</span>` : ""}
+          </div>
+          <p class="sport-news-title">${item.title}</p>
+          <p class="sport-news-summary">${item.summary || ""}</p>
+          <div class="sport-news-meta">
+            <span>${dateStr}</span>
+            ${item.location ? `<span>· ${item.location}</span>` : ""}
+            ${item.source ? `<span>· <a href="${item.source_url || "#"}" target="_blank" rel="noopener">${item.source}</a></span>` : ""}
+          </div>`;
+        card.appendChild(content);
+        grid.appendChild(card);
+      }
+    }
+
+    /* ── Sport dit weekend ── */
+    function renderSportAgenda(items) {
+      const list = document.getElementById("sport-agenda-list");
+      if (!list || !items || items.length === 0) return;
+      list.innerHTML = "";
+      const sorted = [...items].sort((a, b) => new Date(a.date) - new Date(b.date));
+      for (const item of sorted) {
+        const date = new Date(item.date);
+        const dagNaam = DAYS_NL_FULL[date.getDay()].slice(0, 2).toUpperCase();
+        const maandStr = MONTHS_NL_KORT[date.getMonth()];
+
+        // Klikbaar als er een source_url is
+        const row = document.createElement(item.source_url ? "a" : "div");
+        row.className = "sport-agenda-row";
+        if (item.source_url) { row.href = item.source_url; row.target = "_blank"; row.rel = "noopener"; }
+
+        row.innerHTML = `
+          <div class="sport-agenda-date-block">
+            <div class="sport-agenda-dag">${dagNaam}</div>
+            <div class="sport-agenda-dag-num">${date.getDate()}</div>
+            <div class="sport-agenda-dag-maand">${maandStr}</div>
+            ${item.time ? `<div class="sport-agenda-time">${item.time}</div>` : ""}
+          </div>
+          <div class="sport-agenda-info">
+            <p class="sport-agenda-event">${item.event}</p>
+            <p class="sport-agenda-meta">${[item.sport, item.location].filter(Boolean).join(" · ")}</p>
+          </div>
+          ${item.source_url ? `<span class="sport-agenda-link" title="Meer info">→</span>` : ""}`;
+        list.appendChild(row);
+      }
+    }
+
+    /* ── Lokale clubs ── */
+    function renderSportClubs(clubs) {
+      const grid = document.getElementById("sport-clubs-grid");
+      if (!grid || !clubs || clubs.length === 0) return;
+      grid.innerHTML = "";
+      for (const club of clubs) {
+        const card = document.createElement(club.url ? "a" : "div");
+        card.className = "sport-club-card";
+        if (club.url) { card.href = club.url; card.target = "_blank"; card.rel = "noopener"; }
+        card.innerHTML = `
+          <p class="sport-club-name">${club.name}</p>
+          <p class="sport-club-sport-loc">${[club.sport, club.location].filter(Boolean).join(" · ")}</p>
+          ${club.description ? `<p class="sport-club-desc">${club.description}</p>` : ""}
+          ${club.url ? `<p class="sport-club-link-label">→ ${new URL(club.url).hostname}</p>` : ""}`;
+        grid.appendChild(card);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setHeaderDate();
+      loadWeather();
+      initDarkMode();
+      renderSportNieuws(window.BREUKELEN_SPORT_NEWS || []);
+      renderSportAgenda(window.BREUKELEN_SPORT_AGENDA || []);
+      renderSportClubs(window.BREUKELEN_SPORT_CLUBS || []);
+    });
+  </script>
+</body>
+</html>

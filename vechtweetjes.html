@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vechtweetjes — Stichtse Vecht Vandaag</title>
+  <meta name="description" content="Dagelijkse weetjes over Breukelen, de Vecht en de gemeente Stichtse Vecht." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stichtse Vecht Vandaag" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:title" content="Vechtweetjes — Stichtse Vecht Vandaag" />
+  <meta property="og:description" content="Dagelijkse weetjes over Breukelen, de Vecht en de gemeente Stichtse Vecht." />
+  <meta property="og:url" content="https://stichtsevechtvandaag.nl/vechtweetjes.html" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bethunpolder_in_Stichtse_Vecht.jpg/1280px-Bethunpolder_in_Stichtse_Vecht.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { padding: 32px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+    .page-hero h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.025em; color: var(--text); }
+    .page-hero p  { font-size: 14px; color: var(--text-mute); margin-top: 6px; }
+
+    /* ── Vandaag — groot uitgelicht blok ── */
+    .feitje-today {
+      background: var(--accent-bg);
+      border: 1px solid #c8d8e8;
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .feitje-today-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .feitje-today-text {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .feitje-today-day {
+      font-size: 12px;
+      color: var(--text-mute);
+      margin-top: 12px;
+    }
+
+    /* ── Vorige dagen — lijst ── */
+    .feitjes-history-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-bottom: 12px;
+    }
+
+    .feitje-row {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feitje-row:first-of-type { border-top: 1px solid var(--border); }
+
+    .feitje-day-block {
+      flex-shrink: 0;
+      width: 48px;
+      text-align: center;
+    }
+    .feitje-day-num {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .feitje-day-name {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-top: 3px;
+    }
+
+    .feitje-row-text {
+      flex: 1;
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.55;
+      padding-top: 2px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Stichtse Vecht <span class="brand-accent">Vandaag</span></a>
+      <div class="header-right">
+        <span class="header-date" id="header-date"></span>
+        <a class="weather-pill" id="weather-pill" href="weer.html">
+          <span class="weather-pill-icon" id="wp-icon">·</span>
+          <span id="wp-temp">—</span><span class="weather-unit">°</span>
+          <span class="weather-pill-sep">·</span>
+          <span class="weather-pill-desc" id="wp-desc">laden…</span>
+        </a>
+        <button class="dark-mode-btn" id="dark-mode-btn" aria-label="Donkere modus">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="nav-inner container">
+      <ul class="nav-tabs">
+        <li><a href="index.html"          class="nav-tab">vandaag</a></li>
+        <li><a href="nieuws.html"         class="nav-tab">nieuws</a></li>
+        <li><a href="sport.html"          class="nav-tab">sport</a></li>
+        <li><a href="agenda.html"         class="nav-tab">agenda</a></li>
+        <li><a href="fotos.html"          class="nav-tab">foto's</a></li>
+        <li><a href="vechtweetjes.html"   class="nav-tab active">vechtweetjes</a></li>
+        <li><a href="weer.html"           class="nav-tab">weer</a></li>
+      </ul>
+      <a href="mailto:redactie@stichtsevechtvandaag.nl" class="tip-btn">+ tip de redactie</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+
+    <div class="page-hero">
+      <h1>Vechtweetjes</h1>
+      <p>Elke dag een nieuw weetje over Breukelen, de Vecht en de gemeente Stichtse Vecht</p>
+    </div>
+
+    <!-- Vandaag -->
+    <div class="feitje-today" id="feitje-today">
+      <p class="feitje-today-label">Vechtweetje van vandaag</p>
+      <p class="feitje-today-text" id="feitje-today-text">Wordt geladen…</p>
+      <p class="feitje-today-day" id="feitje-today-day"></p>
+    </div>
+
+    <!-- Afgelopen 6 dagen -->
+    <p class="feitjes-history-label">Afgelopen dagen</p>
+    <div id="feitjes-history"></div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Stichtse Vecht Vandaag · gemaakt voor de gemeente aan de Vecht</p>
+      <p class="footer-meta">
+        <a href="#">Aanmelden voor de ochtendmail</a>
+        &nbsp;·&nbsp; Weergegevens via <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="data/data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const DAYS_FULL = ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
+    const MONTHS_FULL = ["januari","februari","maart","april","mei","juni",
+                         "juli","augustus","september","oktober","november","december"];
+
+    function dayOfYear(date) {
+      const start = new Date(date.getFullYear(), 0, 0);
+      return Math.floor((date - start) / 86400000);
+    }
+
+    function feitjeForDate(feitjes, date) {
+      const idx = dayOfYear(date) % feitjes.length;
+      return feitjes[idx];
+    }
+
+    function renderVechtweetjes(feitjes) {
+      if (!feitjes || feitjes.length === 0) return;
+
+      const today = new Date();
+
+      // ── Vandaag ──
+      const todayText   = document.getElementById("feitje-today-text");
+      const todayDayEl  = document.getElementById("feitje-today-day");
+      if (todayText) todayText.textContent = feitjeForDate(feitjes, today);
+      if (todayDayEl) {
+        todayDayEl.textContent =
+          `${DAYS_FULL[today.getDay()]} ${today.getDate()} ${MONTHS_FULL[today.getMonth()]} ${today.getFullYear()}`;
+      }
+
+      // ── Afgelopen 6 dagen ──
+      const history = document.getElementById("feitjes-history");
+      if (history) {
+        history.innerHTML = "";
+        for (let i = 1; i <= 6; i++) {
+          const d = new Date(today);
+          d.setDate(today.getDate() - i);
+          const tekst = feitjeForDate(feitjes, d);
+
+          const row = document.createElement("div");
+          row.className = "feitje-row";
+          row.innerHTML = `
+            <div class="feitje-day-block">
+              <div class="feitje-day-num">${d.getDate()}</div>
+              <div class="feitje-day-name">${DAYS_FULL[d.getDay()].slice(0,2)}</div>
+            </div>
+            <p class="feitje-row-text">${tekst}</p>
+          `;
+          history.appendChild(row);
+        }
+      }
+
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      setHeaderDate();
+      loadWeather();
+      initDarkMode();
+
+      let feitjes = [];
+      if (Array.isArray(window.BREUKELEN_FEITJES)) {
+        feitjes = window.BREUKELEN_FEITJES;
+      } else {
+        try {
+          const r = await fetch("data/feitjes.json");
+          feitjes = await r.json();
+        } catch(_) {}
+      }
+      renderVechtweetjes(feitjes);
+    });
+  </script>
+</body>
+</html>

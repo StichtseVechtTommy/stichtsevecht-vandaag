@@ -1,0 +1,32 @@
+[
+  {
+    "club": "SV Breukelen 1",
+    "opponent": "AFC Utrecht 3",
+    "score_home": 2,
+    "score_away": 1,
+    "home": true,
+    "competition": "3e klasse B Utrecht",
+    "date": "2026-05-04",
+    "source_url": "https://www.knvb.nl/assist/zoek-een-club/uitslagen?club=SV+Breukelen"
+  },
+  {
+    "club": "SV Breukelen 2",
+    "opponent": "Nijenrode 3",
+    "score_home": 0,
+    "score_away": 3,
+    "home": false,
+    "competition": "5e klasse A Utrecht",
+    "date": "2026-05-04",
+    "source_url": "https://www.knvb.nl/assist/zoek-een-club/uitslagen?club=SV+Breukelen"
+  },
+  {
+    "club": "MHC Breukelen D1",
+    "opponent": "HC Pinoke D2",
+    "score_home": 4,
+    "score_away": 2,
+    "home": true,
+    "competition": "Regio Utrecht Dames",
+    "date": "2026-05-03",
+    "source_url": "https://www.knhb.nl"
+  }
+]

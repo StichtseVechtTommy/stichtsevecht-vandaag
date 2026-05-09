@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weer — Stichtse Vecht Vandaag</title>
+  <meta name="description" content="Het weer in Breukelen en de gemeente Stichtse Vecht — vandaag en de komende dagen." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stichtse Vecht Vandaag" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:title" content="Weer — Stichtse Vecht Vandaag" />
+  <meta property="og:description" content="Het weer in Breukelen en de gemeente Stichtse Vecht — vandaag en de komende dagen." />
+  <meta property="og:url" content="https://stichtsevechtvandaag.nl/weer.html" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bethunpolder_in_Stichtse_Vecht.jpg/1280px-Bethunpolder_in_Stichtse_Vecht.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { padding: 32px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+    .page-hero h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.025em; color: var(--text); }
+    .page-hero p  { font-size: 14px; color: var(--text-mute); margin-top: 6px; }
+
+    /* ── AI weertekst blok ── */
+    .weer-tekst-blok {
+      background: var(--accent-bg);
+      border: 1px solid #c8d8e8;
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+    }
+    .weer-tekst-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .weer-tekst-body {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text);
+      letter-spacing: -0.005em;
+    }
+    .weer-tekst-meta {
+      font-size: 11.5px;
+      color: var(--text-mute);
+      margin-top: 14px;
+    }
+
+    /* ── Huidige omstandigheden ── */
+    .weer-huidig {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 24px;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+    .weer-huidig-icon {
+      font-size: 52px;
+      line-height: 1;
+      grid-row: span 2;
+    }
+    .weer-huidig-temp {
+      font-size: 42px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .weer-huidig-temp span {
+      font-size: 22px;
+      color: var(--text-mute);
+      font-weight: 400;
+    }
+    .weer-huidig-desc {
+      font-size: 15px;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+    .weer-huidig-details {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .weer-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .weer-detail-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+    .weer-detail-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── 7-daagse voorspelling ── */
+    .weer-forecast-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-bottom: 12px;
+    }
+    .weer-forecast-strip {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    @media (max-width: 600px) {
+      .weer-forecast-strip { grid-template-columns: repeat(4, 1fr); }
+    }
+    .weer-dag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .weer-dag.vandaag {
+      border-color: var(--accent);
+      background: var(--accent-bg);
+    }
+    .weer-dag-naam {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+    .weer-dag.vandaag .weer-dag-naam { color: var(--accent); }
+    .weer-dag-datum {
+      font-size: 11px;
+      color: var(--text-mute);
+      margin-top: -2px;
+    }
+    .weer-dag-icon { font-size: 22px; line-height: 1; margin: 4px 0; }
+    .weer-dag-max {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .weer-dag-min {
+      font-size: 12px;
+      color: var(--text-mute);
+    }
+    .weer-dag-neerslag {
+      font-size: 10.5px;
+      color: #1f6080;
+      margin-top: 2px;
+    }
+
+    /* ── Laad-staat ── */
+    .weer-loading {
+      font-size: 13.5px;
+      color: var(--text-mute);
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Stichtse Vecht <span class="brand-accent">Vandaag</span></a>
+      <div class="header-right">
+        <span class="header-date" id="header-date"></span>
+        <a class="weather-pill" id="weather-pill" href="weer.html">
+          <span class="weather-pill-icon" id="wp-icon">·</span>
+          <span id="wp-temp">—</span><span class="weather-unit">°</span>
+          <span class="weather-pill-sep">·</span>
+          <span class="weather-pill-desc" id="wp-desc">laden…</span>
+        </a>
+        <button class="dark-mode-btn" id="dark-mode-btn" aria-label="Donkere modus">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="nav-inner container">
+      <ul class="nav-tabs">
+        <li><a href="index.html"          class="nav-tab">vandaag</a></li>
+        <li><a href="nieuws.html"         class="nav-tab">nieuws</a></li>
+        <li><a href="sport.html"          class="nav-tab">sport</a></li>
+        <li><a href="agenda.html"         class="nav-tab">agenda</a></li>
+        <li><a href="fotos.html"          class="nav-tab">foto's</a></li>
+        <li><a href="vechtweetjes.html"   class="nav-tab">vechtweetjes</a></li>
+        <li><a href="weer.html"           class="nav-tab active">weer</a></li>
+      </ul>
+      <a href="mailto:redactie@stichtsevechtvandaag.nl" class="tip-btn">+ tip de redactie</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+
+    <div class="page-hero">
+      <h1>Weer</h1>
+      <p>Het weer in Breukelen en de gemeente Stichtse Vecht</p>
+    </div>
+
+    <!-- AI weertekst -->
+    <div class="weer-tekst-blok" id="weer-tekst-blok">
+      <p class="weer-tekst-label">Weerbericht van vandaag</p>
+      <p class="weer-tekst-body" id="weer-tekst-body">Weerbericht wordt geladen…</p>
+      <p class="weer-tekst-meta" id="weer-tekst-meta"></p>
+    </div>
+
+    <!-- Huidig weer -->
+    <div class="weer-huidig" id="weer-huidig">
+      <div class="weer-huidig-icon" id="weer-icon">⋯</div>
+      <div>
+        <div class="weer-huidig-temp">
+          <span id="weer-temp">—</span><span>°C</span>
+        </div>
+        <div class="weer-huidig-desc" id="weer-desc">Laden…</div>
+      </div>
+      <div class="weer-huidig-details">
+        <div class="weer-detail-item">
+          <span class="weer-detail-label">Voelt als</span>
+          <span class="weer-detail-value" id="weer-feels">—°</span>
+        </div>
+        <div class="weer-detail-item">
+          <span class="weer-detail-label">Luchtvochtigheid</span>
+          <span class="weer-detail-value" id="weer-humidity">—%</span>
+        </div>
+        <div class="weer-detail-item">
+          <span class="weer-detail-label">Wind</span>
+          <span class="weer-detail-value" id="weer-wind">— km/u</span>
+        </div>
+        <div class="weer-detail-item">
+          <span class="weer-detail-label">Neerslag vandaag</span>
+          <span class="weer-detail-value" id="weer-rain">— mm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7-daagse voorspelling -->
+    <p class="weer-forecast-label">De komende 7 dagen</p>
+    <div class="weer-forecast-strip" id="weer-forecast">
+      <p class="weer-loading">Voorspelling laden…</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Stichtse Vecht Vandaag · gemaakt voor de gemeente aan de Vecht</p>
+      <p class="footer-meta">
+        <a href="#">Aanmelden voor de ochtendmail</a>
+        &nbsp;·&nbsp; Weergegevens via <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="data/data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const DAYS_KORT = ["zo","ma","di","wo","do","vr","za"];
+    const MONTHS_KORT = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+
+    // WMO weercodes → emoji (zelfde als script.js maar hier lokaal voor de forecast-strip)
+    const WMO_ICON = {
+      0:"☀️", 1:"🌤️", 2:"⛅", 3:"☁️",
+      45:"🌫️", 48:"🌫️",
+      51:"🌦️", 53:"🌦️", 55:"🌧️",
+      61:"🌦️", 63:"🌧️", 65:"🌧️",
+      66:"🌧️", 67:"🌧️",
+      71:"🌨️", 73:"❄️", 75:"❄️", 77:"❄️",
+      80:"🌦️", 81:"🌧️", 82:"⛈️",
+      85:"🌨️", 86:"❄️",
+      95:"⛈️", 96:"⛈️", 99:"⛈️"
+    };
+
+    // ── Laad AI-weertekst ──
+    function loadWeerTekst() {
+      const body = document.getElementById("weer-tekst-body");
+      const meta = document.getElementById("weer-tekst-meta");
+
+      let tekst = null;
+      if (window.BREUKELEN_WEATHER_TEXT) {
+        tekst = window.BREUKELEN_WEATHER_TEXT;
+      }
+
+      if (tekst && tekst.text) {
+        if (body) body.textContent = tekst.text;
+        if (meta && tekst.date) {
+          const d = new Date(tekst.date);
+          meta.textContent = `Geschreven op ${d.getDate()} ${MONTHS_KORT[d.getMonth()]} · bijgewerkt elke ochtend om 06:30`;
+        }
+      } else {
+        // Geen tekst beschikbaar — toon een korte mededeling
+        if (body) body.textContent = "Het dagelijkse weerbericht wordt elke ochtend om 06:30 automatisch gegenereerd op basis van de actuele weersvoorspelling voor Breukelen en omgeving.";
+        if (meta) meta.textContent = "Nog geen tekst voor vandaag beschikbaar.";
+      }
+    }
+
+    // ── Laad live weerdata van Open-Meteo ──
+    async function loadWeerData() {
+      const lat = 52.1735, lon = 4.9897;
+      const url =
+        `https://api.open-meteo.com/v1/forecast` +
+        `?latitude=${lat}&longitude=${lon}` +
+        `&current=temperature_2m,apparent_temperature,weather_code,relative_humidity_2m,wind_speed_10m` +
+        `&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_sum` +
+        `&timezone=Europe/Amsterdam&forecast_days=7`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Huidig
+        const c = data.current;
+        const code = c.weather_code;
+        document.getElementById("weer-icon").textContent  = WMO_ICON[code] || "☁️";
+        document.getElementById("weer-temp").textContent  = Math.round(c.temperature_2m);
+        document.getElementById("weer-desc").textContent  = WEATHER_CODES[code]?.desc || "Onbekend";
+        document.getElementById("weer-feels").textContent = Math.round(c.apparent_temperature) + "°";
+        document.getElementById("weer-humidity").textContent = Math.round(c.relative_humidity_2m) + "%";
+        document.getElementById("weer-wind").textContent  = Math.round(c.wind_speed_10m) + " km/u";
+
+        // Neerslag vandaag (dag 0 in daily)
+        const rain0 = data.daily.precipitation_sum[0];
+        document.getElementById("weer-rain").textContent =
+          rain0 !== null ? rain0.toFixed(1) + " mm" : "0 mm";
+
+        // 7-daagse strip
+        renderForecast(data.daily);
+
+      } catch (err) {
+        console.warn("Weerdata kon niet geladen worden:", err);
+        document.getElementById("weer-desc").textContent = "Geen data beschikbaar";
+        document.getElementById("weer-forecast").innerHTML =
+          `<p class="weer-loading">Voorspelling tijdelijk niet beschikbaar.</p>`;
+      }
+    }
+
+    function renderForecast(daily) {
+      const strip = document.getElementById("weer-forecast");
+      if (!strip) return;
+      strip.innerHTML = "";
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      for (let i = 0; i < daily.time.length; i++) {
+        const date = new Date(daily.time[i]);
+        const isToday = date.getTime() === today.getTime();
+        const naam = isToday ? "vandaag" : DAYS_KORT[date.getDay()];
+        const icon = WMO_ICON[daily.weather_code[i]] || "☁️";
+        const max  = Math.round(daily.temperature_2m_max[i]);
+        const min  = Math.round(daily.temperature_2m_min[i]);
+        const rain = daily.precipitation_sum[i];
+
+        const dag = document.createElement("div");
+        dag.className = "weer-dag" + (isToday ? " vandaag" : "");
+        const dagDatum = `${date.getDate()} ${MONTHS_KORT[date.getMonth()]}`;
+        dag.innerHTML = `
+          <span class="weer-dag-naam">${naam}</span>
+          <span class="weer-dag-datum">${isToday ? "" : dagDatum}</span>
+          <span class="weer-dag-icon">${icon}</span>
+          <span class="weer-dag-max">${max}°</span>
+          <span class="weer-dag-min">${min}°</span>
+          ${rain > 0.2 ? `<span class="weer-dag-neerslag">💧 ${rain.toFixed(1)}mm</span>` : ""}
+        `;
+        strip.appendChild(dag);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setHeaderDate();
+      loadWeather();   // header pill via script.js
+      initDarkMode();
+      loadWeerTekst();
+      loadWeerData();
+    });
+  </script>
+</body>
+</html>

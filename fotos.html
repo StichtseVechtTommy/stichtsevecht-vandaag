@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foto's — Stichtse Vecht Vandaag</title>
+  <meta name="description" content="Foto van de week en beeldmateriaal uit de gemeente Stichtse Vecht." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stichtse Vecht Vandaag" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:title" content="Foto's — Stichtse Vecht Vandaag" />
+  <meta property="og:description" content="Foto van de week en beeldmateriaal uit de gemeente Stichtse Vecht." />
+  <meta property="og:url" content="https://stichtsevechtvandaag.nl/fotos.html" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bethunpolder_in_Stichtse_Vecht.jpg/1280px-Bethunpolder_in_Stichtse_Vecht.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { padding: 32px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+    .page-hero h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.025em; color: var(--text); }
+    .page-hero p  { font-size: 14px; color: var(--text-mute); margin-top: 6px; }
+
+    /* ── Foto van de week groot ── */
+    .fotos-hero {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--surface);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 0;
+    }
+    .fotos-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fotos-hero-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #c9d8e8 0%, #e8eef4 50%, #d4e2ee 100%);
+    }
+    .fotos-hero-placeholder svg {
+      opacity: 0.3;
+    }
+
+    /* Caption-balk */
+    .fotos-hero-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px 24px 18px;
+      background: linear-gradient(to top, rgba(19,19,17,.72) 0%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .fotos-hero-caption-text {
+      color: #fff;
+    }
+    .fotos-wk-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .fotos-wk-title {
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .fotos-wk-credit {
+      font-size: 11.5px;
+      color: rgba(255,255,255,.55);
+      flex-shrink: 0;
+      align-self: flex-end;
+    }
+
+    /* ── Info onder de foto ── */
+    .fotos-info {
+      padding: 16px 0 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .fotos-info p {
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    /* ── Tip-blok: foto insturen ── */
+    .fotos-tip-blok {
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 420px;
+    }
+    .fotos-tip-blok .tip-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .fotos-tip-blok h2 {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: #fff;
+      margin: 0;
+    }
+    .fotos-tip-blok p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+    .fotos-tip-blok a.fotos-mail-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 9px 18px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: opacity 0.15s;
+    }
+    .fotos-tip-blok a.fotos-mail-btn:hover { opacity: 0.85; }
+
+    /* ── Archief-sectie (placeholder) ── */
+    .fotos-archief-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      padding: 32px 0 12px;
+    }
+    .fotos-archief-empty {
+      font-size: 13.5px;
+      color: var(--text-mute);
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Nieuws-foto's sectie ── */
+    .fotos-nieuws-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 0;
+    }
+    .fotos-nieuws-item {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .fotos-nieuws-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .fotos-nieuws-item:hover img { transform: scale(1.04); }
+    .fotos-nieuws-item .foto-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 10px 8px;
+      background: linear-gradient(to top, rgba(19,19,17,.7) 0%, transparent 100%);
+      font-size: 11.5px;
+      color: rgba(255,255,255,.9);
+      line-height: 1.3;
+    }
+    a.fotos-nieuws-item { text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Stichtse Vecht <span class="brand-accent">Vandaag</span></a>
+      <div class="header-right">
+        <span class="header-date" id="header-date"></span>
+        <a class="weather-pill" id="weather-pill" href="weer.html">
+          <span class="weather-pill-icon" id="wp-icon">·</span>
+          <span id="wp-temp">—</span><span class="weather-unit">°</span>
+          <span class="weather-pill-sep">·</span>
+          <span class="weather-pill-desc" id="wp-desc">laden…</span>
+        </a>
+        <button class="dark-mode-btn" id="dark-mode-btn" aria-label="Donkere modus">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="nav-inner container">
+      <ul class="nav-tabs">
+        <li><a href="index.html"          class="nav-tab">vandaag</a></li>
+        <li><a href="nieuws.html"         class="nav-tab">nieuws</a></li>
+        <li><a href="sport.html"          class="nav-tab">sport</a></li>
+        <li><a href="agenda.html"         class="nav-tab">agenda</a></li>
+        <li><a href="fotos.html"          class="nav-tab active">foto's</a></li>
+        <li><a href="vechtweetjes.html"   class="nav-tab">vechtweetjes</a></li>
+        <li><a href="weer.html"           class="nav-tab">weer</a></li>
+      </ul>
+      <a href="mailto:redactie@stichtsevechtvandaag.nl" class="tip-btn">+ tip de redactie</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+
+    <div class="page-hero">
+      <h1>Foto's</h1>
+      <p>Beelden uit de gemeente Stichtse Vecht</p>
+    </div>
+
+    <!-- Foto van de week -->
+    <div class="fotos-hero" id="fotos-hero">
+      <div class="fotos-hero-placeholder" id="fotos-placeholder">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="80" height="80" rx="8" fill="none"/>
+          <path d="M12 56L28 36l10 12 10-14 20 22H12z" fill="#1f4068" opacity=".4"/>
+          <circle cx="55" cy="24" r="8" fill="#1f4068" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="fotos-hero-caption" id="fotos-caption" style="display:none">
+        <div class="fotos-hero-caption-text">
+          <p class="fotos-wk-label">FOTO VAN DE WEEK</p>
+          <p class="fotos-wk-title" id="fotos-wk-title">—</p>
+        </div>
+        <span class="fotos-wk-credit" id="fotos-wk-credit"></span>
+      </div>
+    </div>
+
+    <div class="fotos-info" id="fotos-info" style="display:none">
+      <p id="fotos-info-text"></p>
+    </div>
+
+    <!-- Foto's bij nieuwsberichten -->
+    <p class="fotos-archief-label">Foto's bij het nieuws</p>
+    <div class="fotos-nieuws-grid" id="fotos-nieuws-grid">
+      <p class="fotos-archief-empty">Wordt geladen…</p>
+    </div>
+
+    <!-- Foto insturen -->
+    <p class="fotos-archief-label">Een foto insturen?</p>
+    <div class="fotos-tip-blok">
+      <p class="tip-label">MEEDOEN</p>
+      <h2>Deel jouw foto van de Vecht</h2>
+      <p>Heb je een mooie foto gemaakt in Breukelen, Maarssen, Loenen of een ander dorp langs de Vecht? Stuur hem in — wie weet staat hij volgende week als Foto van de Week.</p>
+      <a href="mailto:redactie@stichtsevechtvandaag.nl?subject=Foto insturen" class="fotos-mail-btn">Foto insturen →</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Stichtse Vecht Vandaag · gemaakt voor de gemeente aan de Vecht</p>
+      <p class="footer-meta">
+        <a href="#">Aanmelden voor de ochtendmail</a>
+        &nbsp;·&nbsp; Weergegevens via <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="data/data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    /* ── Foto's-pagina logica ── */
+
+    async function loadFotoPage() {
+      // 1. Foto van de week
+      let foto = null;
+      if (window.BREUKELEN_FOTO_WEEK && window.BREUKELEN_FOTO_WEEK.url) {
+        foto = window.BREUKELEN_FOTO_WEEK;
+      } else {
+        try {
+          const r = await fetch("data/foto-van-de-week.json");
+          foto = await r.json();
+        } catch(_) {}
+      }
+
+      if (foto && foto.url) {
+        const hero = document.getElementById("fotos-hero");
+        const placeholder = document.getElementById("fotos-placeholder");
+        const caption = document.getElementById("fotos-caption");
+
+        // Verberg placeholder, toon foto
+        const img = document.createElement("img");
+        img.src = foto.url;
+        img.alt = foto.caption || "Foto van de week";
+        hero.insertBefore(img, placeholder);
+        if (placeholder) placeholder.style.display = "none";
+
+        // Caption
+        const titleEl = document.getElementById("fotos-wk-title");
+        const creditEl = document.getElementById("fotos-wk-credit");
+        if (titleEl) titleEl.textContent = foto.caption || "";
+        if (creditEl && foto.credit) creditEl.textContent = "© " + foto.credit;
+        if (caption && (foto.caption || foto.credit)) caption.style.display = "flex";
+
+        // Info-tekst
+        if (foto.caption) {
+          const infoBlock = document.getElementById("fotos-info");
+          const infoText  = document.getElementById("fotos-info-text");
+          if (infoBlock && infoText) {
+            infoText.textContent = foto.caption;
+            infoBlock.style.display = "block";
+          }
+        }
+      }
+
+      // 2. Foto's bij nieuwsberichten
+      let newsItems = [];
+      if (Array.isArray(window.BREUKELEN_NEWS)) {
+        newsItems = window.BREUKELEN_NEWS;
+      } else {
+        try {
+          const r = await fetch("data/news.json");
+          newsItems = await r.json();
+        } catch(_) {}
+      }
+
+      const grid = document.getElementById("fotos-nieuws-grid");
+      if (!grid) return;
+
+      const withPhotos = newsItems.filter(i => i.image_url);
+
+      if (withPhotos.length === 0) {
+        grid.innerHTML = `<p class="fotos-archief-empty">Geen nieuwsfoto's beschikbaar.</p>`;
+        return;
+      }
+
+      grid.innerHTML = "";
+      for (const item of withPhotos) {
+        const a = document.createElement(item.source_url ? "a" : "div");
+        a.className = "fotos-nieuws-item";
+        if (item.source_url) {
+          a.href = item.source_url;
+          a.target = "_blank";
+          a.rel = "noopener";
+        }
+        const img = document.createElement("img");
+        img.src = item.image_url;
+        img.alt = item.title || "";
+        img.loading = "lazy";
+        const overlay = document.createElement("div");
+        overlay.className = "foto-overlay";
+        overlay.textContent = item.title || "";
+        a.appendChild(img);
+        a.appendChild(overlay);
+        grid.appendChild(a);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setHeaderDate();
+      loadWeather();
+      initDarkMode();
+      loadFotoPage();
+    });
+  </script>
+</body>
+</html>
