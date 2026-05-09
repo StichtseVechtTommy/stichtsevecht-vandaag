@@ -303,11 +303,7 @@
         row.className = "sport-news-row";
         if (item.source_url) { row.href = item.source_url; row.target = "_blank"; row.rel = "noopener"; }
 
-        const thumbClass = `cat-bg-${catClass === "voetbal" ? "voetbal" : catClass === "hockey" ? "hockey" : catClass === "tennis" ? "tennis" : "algemeen"}`;
         row.innerHTML = `
-          <div class="sport-news-thumb ${thumbClass}">
-            ${item.image_url ? `<img src="${item.image_url}" alt="" loading="lazy">` : ""}
-          </div>
           <div class="sport-news-row-content">
             <div class="sport-news-row-cat">
               <span class="cat-dot sport"></span>
