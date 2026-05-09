@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stichtsevechtvandaag.nl/sitemap.xml
+Sitemap: https://stichtsevechttommy.github.io/stichtsevecht-vandaag/sitemap.xml
