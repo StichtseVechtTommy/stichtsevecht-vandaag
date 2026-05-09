@@ -1,6 +1,6 @@
 /* Auto-gegenereerd door breukelen-nieuws-update. Niet handmatig bewerken. */
 
-window.BREUKELEN_WEATHER_TEXT = { "date": "2026-05-09", "text": "Goedemorgen, Stichtse Vecht! Vandaag is het bewolkt boven de Vecht, maar het blijft droog en heerlijk aangenaam met een maximum van 18 graden — wie nog wil: de buitenplantenmarkt bij de Spinnerie in Loenen aan de Vecht loopt nog tot 15:30. Morgen koelt het iets af naar 16 graden, maar ook dan hoef je de paraplu thuis te laten. Vanaf maandag verandert het echt: dinsdag verwachten we maar liefst 14 millimeter regen. Geniet dit weekend dus goed van buiten zijn!" };
+window.BREUKELEN_WEATHER_TEXT = { "date": "2026-05-09", "text": "Vanavond is het helder en fris boven Stichtse Vecht, zo'n 14 graden — nog een mooie avond voor een wandeling langs de Vecht. Morgen (zondag) wordt bewolkt maar blijft het droog met een maximum van 15 graden; prima voor een uitstap naar de Bethunpolder of een bezoek aan Maarssendorp. Vanaf maandag schuift er motregen binnen met temperaturen rond de 12 graden — dan is de bibliotheek of een bakker in Loenen een fijne optie." };
 
 window.BREUKELEN_NEWS = [
   {
@@ -251,3 +251,4 @@ window.BREUKELEN_SPORT = [
     "source_url": "https://www.knhb.nl"
   }
 ];
+                                    
