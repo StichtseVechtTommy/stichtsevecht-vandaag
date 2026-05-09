@@ -1,11 +1,26 @@
 /* Auto-gegenereerd door breukelen-nieuws-update. Niet handmatig bewerken. */
 
-window.BREUKELEN_WEATHER_TEXT = {
-  "date": "2026-05-09",
-  "text": "Goedemorgen, Stichtse Vecht! Het is bewolkt boven de Vecht, maar de dag belooft droog en aangenaam te worden — met een maximum van 18 graden is het prima weer voor een fietstocht langs de rivier of een bezoek aan de Grote Jaarmarkt in Mijdrecht dit weekend. Morgen koelt het wat af naar 15 graden, maar ook dan blijft het droog. Houd er rekening mee dat het zondag wat gaat motregen — geniet dus van het droge weekend!"
-};
+window.BREUKELEN_WEATHER_TEXT = { "date": "2026-05-09", "text": "Goedemorgen, Stichtse Vecht! Vandaag is het bewolkt boven de Vecht, maar het blijft droog en heerlijk aangenaam met een maximum van 18 graden — wie nog wil: de buitenplantenmarkt bij de Spinnerie in Loenen aan de Vecht loopt nog tot 15:30. Morgen koelt het iets af naar 16 graden, maar ook dan hoef je de paraplu thuis te laten. Vanaf maandag verandert het echt: dinsdag verwachten we maar liefst 14 millimeter regen. Geniet dit weekend dus goed van buiten zijn!" };
 
 window.BREUKELEN_NEWS = [
+  {
+    "title": "Zwemlust Nieuwersluis maakt kans op €10.000 ANWB-bijdrage — stem mee!",
+    "date": "2026-05-09",
+    "summary": "NIEUWERSLUIS > Onlangs heeft Zwemlust een projectvoorstel bij het ANWB Fonds ingediend. Dit project draagt bij aan de verduurzaming van ons unieke buitenbad.",
+    "source": "VARnws Stichtse Vecht",
+    "source_url": "https://www.varnws.nl/stichtsevecht/nieuws/55522/zwemlust-nieuwersluis-genomineerd-door-anwb-fonds",
+    "category": "dorpsleven",
+    "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82270/cd899a8b/content/2026/5/b3f05146-dda1-4d25-94d8-78a5f9a34b2b"
+  },
+  {
+    "title": "Koordirigent Wim de Penning uit Kockengen viert 25-jarig jubileum",
+    "date": "2026-05-09",
+    "summary": "KOCKENGEN > Christelijk gemengde zangvereniging Excelsior uit Kockengen stond uitgebreid stil bij het vieren van dit jubileum.",
+    "source": "VARnws Stichtse Vecht",
+    "source_url": "https://www.varnws.nl/stichtsevecht/nieuws/55523/25-jarig-jubileum-koordirigent-en-musicus-wim-de-penning-in-k",
+    "category": "cultuur",
+    "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82271/cd899a8b/content/2026/5/8a9c68e7-8561-4cb6-af28-c4d4869805c4"
+  },
   {
     "title": "Foto-expositie 'Breukelen in 2024' opent 1 juni bij Regionaal Archief",
     "date": "2026-05-09",
@@ -14,6 +29,15 @@ window.BREUKELEN_NEWS = [
     "source_url": "https://rtvstichtsevecht.nl/nieuws/artikel/tentoonstelling-breukelen-in-2024-opmaat-naar-de-toekomst-bij-regionaal-archief-noordwest-utrecht",
     "category": "cultuur",
     "image_url": "https://3mfhdcm0onod.b-cdn.net/3r1ejv7usi5g/w_1200,h_630/gerhard-hof-overzichtsfoto-van-de-brand-in-de-voormalige-bibliotheek-in-breukelen-19-maart-2024.jpg"
+  },
+  {
+    "title": "Arjan van den Hoek keert terug als sluiswachter op de Mijndense Sluis",
+    "date": "2026-05-08",
+    "summary": "Jarenlang was hij (parttime) sluiswachter van de Mijndense Sluis tussen de Vecht en de Loosdrechtse Plassen. Hij stopte er een paar jaar geleden mee, maar keert terug naar zijn oude stek.",
+    "source": "VARnws Stichtse Vecht",
+    "source_url": "https://www.varnws.nl/stichtsevecht/nieuws/55515/arjan-van-den-hoek-terug-op-de-mijndense-sluis",
+    "category": "dorpsleven",
+    "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82262/cd899a8b/content/2026/5/9db68a90-cd6d-43e3-abdc-bf18e47eb006"
   },
   {
     "title": "N402 Straatweg tussen Maarssen en Breukelen volledig dicht van 1–22 juni",
@@ -98,14 +122,6 @@ window.BREUKELEN_FEITJES = [
 
 window.BREUKELEN_EVENTS = [
   {
-    "title": "Historische Kring Breukelen viert 40-jarig jubileum (8ste lustrum)",
-    "date": "2026-05-09",
-    "time": "",
-    "location": "Pieterskerk, Breukelen",
-    "description": "De Historische Kring Breukelen viert haar 40-jarig bestaan. Het programma omvat een lunch voor leden, een lezing in de Pieterskerk en de uitreiking van de Arie Mantenprijze.",
-    "source_url": "https://www.historischekringbreukelen.nl"
-  },
-  {
     "title": "Eerste reguliere raadsvergadering nieuwe gemeenteraad, live op tv",
     "date": "2026-05-12",
     "time": "",
@@ -138,6 +154,22 @@ window.BREUKELEN_EVENTS = [
     "source_url": "https://www.varnws.nl/stichtsevecht/lezersnieuws/55508/openbare-repetitie-kamerkoor-mask-in-brugwachtershuisje"
   },
   {
+    "title": "Naar de Knoppen! — Lentefestival elektronische muziek bij Fort Maarsseveen",
+    "date": "2026-05-17",
+    "time": "12:00 – 19:00",
+    "location": "Fort Maarsseveen, Maarssen",
+    "description": "De derde editie van het lentefestival voor elektronische muziek bij het prachtige Fort Maarsseveen aan het water.",
+    "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/5/17/naar-de-knoppen-lentefestival-voor-elektronische-muziek-derde-editie-54937"
+  },
+  {
+    "title": "Lezing: Nijenrode — Bezetting, Bevrijding, Business School",
+    "date": "2026-05-21",
+    "time": "20:00 – 22:00",
+    "location": "Vechtstreekmuseum, Maarssen",
+    "description": "Lezing over de bewogen geschiedenis van kasteel Nijenrode: van bezetting in de Tweede Wereldoorlog via bevrijding door de Canadezen tot de internationale Business School van vandaag.",
+    "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/5/21/lezing-nijenrode-bezetting-bevrijding-business-school-55085"
+  },
+  {
     "title": "Dag van het Kasteel — Kasteel Loenersloot open",
     "date": "2026-05-25",
     "time": "11:00 – 17:00",
@@ -146,19 +178,19 @@ window.BREUKELEN_EVENTS = [
     "source_url": "https://www.kasteeldag.nl"
   },
   {
-    "title": "Start nieuwe beweegroute Breukelen in Henk van der Griftpark",
+    "title": "Start nieuwe beweeggroep Breukelen in Henk van der Griftpark",
     "date": "2026-05-27",
-    "time": "",
+    "time": "10:00 – 11:30",
     "location": "Henk van der Griftpark, Breukelen",
-    "description": "Elke week op woensdag: gratis en laagdrempelig samen bewegen met begeleiding in het Henk van der Griftpark. Aanmelden via de gemeente Stichtse Vecht.",
-    "source_url": "https://www.stichtsevecht.nl"
+    "description": "Gratis en laagdrempelig samen bewegen met begeleiding in het Henk van der Griftpark. Aanmelden via de gemeente Stichtse Vecht.",
+    "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/5/27/start-nieuwe-beweeggroep-breukelen-55520"
   },
   {
     "title": "Lezing Eric Simons over stress bij Boekhandel van Kralingen — gratis",
     "date": "2026-05-28",
     "time": "19:00",
     "location": "Boekhandel van Kralingen, Breukelen",
-    "description": "Eric Simons geeft donderdagavond 28 mei een lezing bij Boekhandel van Kralingen over zijn boek 'Gelukkig heb ik stress'. De lezing start om 19.00 uur in de boekhandel in Breukelen en de entree is gratis.",
+    "description": "Eric Simons geeft donderdagavond 28 mei een lezing bij Boekhandel van Kralingen over zijn boek 'Gelukkig heb ik stress'. De lezing start om 19.00 uur en de entree is gratis.",
     "source_url": "https://www.ad.nl/stichtse-vecht/eric-simons-geeft-lezing-over-stress-in-boekhandel-van-kralingen-in-breukelen~aa2beaa7/"
   },
   {
@@ -170,12 +202,20 @@ window.BREUKELEN_EVENTS = [
     "source_url": "https://www.unicefloop.nl"
   },
   {
-    "title": "Open Dag gemeente Stichtse Vecht",
-    "date": "2026-06-27",
-    "time": "",
-    "location": "Stichtse Vecht",
-    "description": "Gemeente Stichtse Vecht opent haar deuren voor inwoners op zaterdag 27 juni. Meer informatie volgt via de gemeentelijke website.",
-    "source_url": "https://www.stichtsevecht.nl"
+    "title": "Mini Pasar — Aziatische Markt Maluku Maarssen",
+    "date": "2026-05-30",
+    "time": "10:00 – 16:00",
+    "location": "Dorpshuis Maarssen, Maarssen",
+    "description": "Gezellige Aziatische markt georganiseerd door de Maluku-gemeenschap in Maarssen, met eten, drinken en cultuur.",
+    "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/5/30/mini-pasar-aziatische-markt-maluku-maarssen-55068"
+  },
+  {
+    "title": "Boeken & Vinylmarkt in Breukelen",
+    "date": "2026-06-13",
+    "time": "10:00 – 17:00",
+    "location": "Centrum Breukelen",
+    "description": "Tweedehands boeken en vinyl in het centrum van Breukelen. Een dag voor liefhebbers van boeken, muziek en koopjes.",
+    "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/6/13/boeken-vinylmarkt-in-breukelen-55472"
   }
 ];
 
