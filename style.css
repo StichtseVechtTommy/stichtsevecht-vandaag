@@ -962,3 +962,83 @@ body.dark-mode .dark-mode-btn           { border-color: #243547; color: var(--te
 body.dark-mode .dark-mode-btn:hover     { border-color: var(--accent); color: var(--accent); }
 body.dark-mode .bento-tip               { background: #0c1520; }
 body.dark-mode .agenda-date-block       { background: #0c1520; }
+
+/* ═══════════ RESPONSIVE — TABLET (≤ 900px) ═══════════ */
+@media (max-width: 900px) {
+  /* Hero: smaller font */
+  .hero-title { font-size: 24px; }
+
+  /* Bento: 2 kolommen */
+  .bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .bento-foto    { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-verkeer { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-sport   { grid-column: 1 / span 2; grid-row: auto; }
+  .bento-feitje  { grid-column: 1 / span 1; grid-row: auto; }
+  .bento-tip     { grid-column: 2 / span 1; grid-row: auto; }
+
+  /* Agenda: 2 kolommen */
+  .agenda-events { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════ RESPONSIVE — MOBIEL (≤ 600px) ═══════════ */
+@media (max-width: 600px) {
+  /* Container */
+  .container { padding: 0 14px; }
+
+  /* Header */
+  .header-date { display: none; }
+  .weather-pill-desc { display: none; }
+  .weather-pill-sep  { display: none; }
+  .brand { font-size: 17px; }
+
+  /* Nav: horizontaal scrollbaar */
+  .nav-inner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-tabs { flex-shrink: 0; }
+  .tip-btn  { display: none; }
+  .nav-tab  { padding: 11px 12px; font-size: 12px; }
+
+  /* Hero: gestapeld */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .hero-photo { height: 200px; }
+  .hero-title { font-size: 22px; }
+  .hero-summary { font-size: 13.5px; }
+
+  /* Bento: alles full-width gestapeld */
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .bento-foto    { grid-column: 1; grid-row: auto; }
+  .bento-verkeer { grid-column: 1; grid-row: auto; }
+  .bento-sport   { grid-column: 1; grid-row: auto; }
+  .bento-feitje  { grid-column: 1; grid-row: auto; }
+  .bento-tip     { grid-column: 1; grid-row: auto; }
+
+  /* Verkeer map: iets minder hoog op mobiel */
+  .verkeer-map-wrapper { aspect-ratio: 4 / 3; }
+
+  /* News grid: 1 kolom */
+  .news-grid { grid-template-columns: 1fr; }
+
+  /* Nieuws-thumbnails iets kleiner */
+  .news-thumb { width: 88px; height: 70px; }
+
+  /* Agenda: 1 kolom */
+  .agenda-events { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Main content minder padding */
+  .main-content { padding-top: 20px; padding-bottom: 40px; gap: 24px; }
+}
