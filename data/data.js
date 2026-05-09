@@ -102,7 +102,7 @@ window.BREUKELEN_NEWS = [
 ];
 
 window.BREUKELEN_FOTO_WEEK = {
-  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Breukelen_-_Kortrijkse_molen_-_panoramio.jpg/1200px-Breukelen_-_Kortrijkse_molen_-_panoramio.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Breukelen_-_Kortrijkse_molen_-_panoramio.jpg",
   "caption": "De Kortrijkse molen in Breukelen, langs de Vecht",
   "credit": "Foto: Rokus C / CC BY 3.0",
   "lastUpdated": "2026-05-09"
@@ -243,4 +243,6 @@ window.BREUKELEN_SPORT = [
   },
   {
     "club": "MHC Breukelen D1",
-    "op
+    "opponent": "HC Pinoke D2",
+    "score_home": 4,
+    "score_a
