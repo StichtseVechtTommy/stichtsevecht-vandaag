@@ -108,13 +108,15 @@
       <!-- Verkeer & verstoringen -->
       <div class="bento-cell bento-verkeer" id="verkeer-section">
         <h3 class="bento-label">Verkeer &amp; verstoringen</h3>
-        <!-- Kopje boven de kaart -->
-        <div class="verkeer-row">
-          <span class="verkeer-name">Verkeer · Stichtse Vecht regio</span>
+
+        <!-- Wegverkeer sectie -->
+        <div class="verkeer-sectie-header">
+          <span class="verkeer-sectie-titel">🚗 Wegverkeer</span>
           <a href="https://www.waze.com/ul?ll=52.17,4.97&navigate=no&zoom=10" target="_blank" rel="noopener" class="ns-storingen-link">Open in Waze →</a>
         </div>
         <!-- Waze live verkeerskaart — wrapper knipt header/footer weg -->
         <div class="verkeer-map-wrapper">
+          <a class="verkeer-map-tap-overlay" href="https://www.waze.com/ul?ll=52.17,4.97&navigate=no&zoom=10" target="_blank" rel="noopener" aria-label="Open in Waze"></a>
           <iframe
             id="verkeer-map"
             src="https://embed.waze.com/iframe?zoom=11&lat=52.17&lon=4.97&ct=livemap"
@@ -123,10 +125,11 @@
             allowfullscreen
           ></iframe>
         </div>
-        <!-- NS storingen -->
+
+        <!-- NS sectie -->
         <div class="ns-storingen-block">
-          <div class="verkeer-row">
-            <span class="verkeer-name">NS · Stichtse Vecht regio</span>
+          <div class="verkeer-sectie-header">
+            <span class="verkeer-sectie-titel">🚆 NS treinen</span>
             <a href="https://www.ns.nl/storingen" target="_blank" rel="noopener" class="ns-storingen-link">alle storingen →</a>
           </div>
           <div id="ns-storingen"><!-- gevuld door script.js --></div>

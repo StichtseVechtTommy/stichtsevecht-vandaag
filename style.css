@@ -437,6 +437,36 @@ button {
   border: none;
 }
 
+/* Sectie-headers binnen verkeer blok */
+.verkeer-sectie-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+}
+.verkeer-sectie-header:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+.verkeer-sectie-titel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-soft);
+  letter-spacing: 0.01em;
+}
+
+/* Tap-overlay op kaart: op desktop onzichtbaar, op mobiel dekt het de iframe af */
+.verkeer-map-tap-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 /* NS storingen blok */
 .ns-storingen-block {
   display: flex;
@@ -1041,4 +1071,27 @@ body.dark-mode .agenda-date-block       { background: #0c1520; }
 
   /* Main content minder padding */
   .main-content { padding-top: 20px; padding-bottom: 40px; gap: 24px; }
+
+  /* Nav: gradient-hint rechts zodat scrollen zichtbaar is */
+  .site-nav { position: relative; }
+  .site-nav::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 36px;
+    background: linear-gradient(to left, var(--surface), transparent);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Waze kaart: tap-overlay zichtbaar zodat de pagina scrollt */
+  .verkeer-map-tap-overlay { display: block; }
+  #verkeer-map { pointer-events: none; }
+
+  /* NS storingen: geen aparte scroll, toon alles */
+  #ns-storingen { max-height: none; overflow-y: visible; }
+
+  /* Subpagina's: minder witruimte boven content */
+  .page-hero { padding: 18px 0 12px !important; margin-bottom: 18px !important; }
+  .page-hero h1 { font-size: 22px !important; }
 }
