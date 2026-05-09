@@ -949,12 +949,8 @@ a.agenda-event:hover .agenda-arrow {
 }
 
 /* ═══════════ SUBPAGINA PAGE-HERO ═══════════ */
-.page-hero { padding: 10px 0 10px !important; margin-bottom: 0 !important; }
-.page-hero h1 { display: none !important; }
-.page-hero p  { font-size: 13px !important; color: var(--text-mute) !important; margin-top: 0 !important; }
-
-/* Subpagina main-content: minder gap dan vandaag-pagina */
-.main-content.subpage { gap: 16px !important; padding-top: 0 !important; }
+.page-hero { padding: 18px 0 14px !important; margin-bottom: 20px !important; }
+.page-hero h1 { font-size: 26px !important; }
 
 /* ═══════════ DARK MODE ═══════════ */
 body.dark-mode {
