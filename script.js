@@ -330,7 +330,9 @@ async function loadFotoVanDeWeek() {
     const creditEl = document.getElementById("foto-wk-credit");
 
     if (foto.url && imgEl) {
-      imgEl.style.backgroundImage = `url(${foto.url})`;
+      imgEl.style.backgroundImage = `url("${foto.url}")`;
+      imgEl.style.backgroundSize = "cover";
+      imgEl.style.backgroundPosition = "center";
     }
     if (foto.caption && titleEl) titleEl.textContent = foto.caption;
     if (foto.credit && creditEl)  creditEl.textContent = "© " + foto.credit;
@@ -562,10 +564,4 @@ document.addEventListener("DOMContentLoaded", () => {
   loadWeather();
   loadNews();
   loadEvents();
-  loadFotoVanDeWeek();
-  loadFeitje();
-  loadSport();
-  initDarkMode();
-  initNavTabs();
-  loadNSDisruptions();
-});
+  loadFotoVanDeWeek()
