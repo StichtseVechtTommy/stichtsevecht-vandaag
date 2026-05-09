@@ -1056,12 +1056,21 @@ body.dark-mode .agenda-date-block       { background: #0c1520; }
   /* Container */
   .container { padding: 0 14px; }
 
-  /* Header */
+  /* Header — logo op regel 1, weer + darkmode op regel 2 */
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    padding: 8px 0;
+  }
+  .brand {
+    font-size: 17px;
+    width: 100%;
+  }
+  .brand-logo { height: 40px; }
+  .header-right { margin-left: auto; }
   .header-date { display: none; }
   .weather-pill-desc { display: none; }
   .weather-pill-sep  { display: none; }
-  .brand { font-size: 17px; }
-  .brand-logo { height: 40px; }
 
   /* Nav: horizontaal scrollbaar */
   .nav-inner {
