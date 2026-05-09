@@ -101,6 +101,15 @@ button {
   letter-spacing: -0.02em;
   color: var(--text);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  height: 36px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .brand-accent {
