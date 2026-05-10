@@ -441,7 +441,7 @@ async function loadVandaag() {
   const upcoming = items
     .filter(e => e.date >= todayStr)
     .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(0, 5);
+    .slice(0, 3);
 
   if (upcoming.length === 0) {
     container.innerHTML = `

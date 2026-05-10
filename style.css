@@ -334,7 +334,7 @@ body.dark-mode .brand-logo {
 .bento {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 300px auto auto;
+  grid-template-rows: 390px auto auto;
   gap: 12px;
 }
 
@@ -605,7 +605,7 @@ a.status-pill:hover { opacity: 0.8; }
 .vandaag-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   flex: 1;
 }
 
