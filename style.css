@@ -334,7 +334,7 @@ body.dark-mode .brand-logo {
 .bento {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 2fr 1fr auto;
+  grid-template-rows: 300px auto auto;
   gap: 12px;
 }
 
