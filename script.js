@@ -330,7 +330,9 @@ async function loadFotoVanDeWeek() {
     const creditEl = document.getElementById("foto-wk-credit");
 
     if (foto.url && imgEl) {
-      imgEl.style.backgroundImage = `url(${foto.url})`;
+      imgEl.style.backgroundImage = `url("${foto.url}")`;
+      imgEl.style.backgroundSize = "cover";
+      imgEl.style.backgroundPosition = "center";
     }
     if (foto.caption && titleEl) titleEl.textContent = foto.caption;
     if (foto.credit && creditEl)  creditEl.textContent = "© " + foto.credit;
@@ -404,52 +406,73 @@ function initDarkMode() {
 }
 
 // ════════════════════════════════════════
-//  SPORT — agenda dit weekend (homepage)
+//  VANDAAG IN STICHTSE VECHT (homepage)
 // ════════════════════════════════════════
-async function loadSport() {
-  const list = document.getElementById("sport-list");
-  if (!list) return;
+async function loadVandaag() {
+  const container = document.getElementById("vandaag-list");
+  if (!container) return;
 
-  // Laad sport-data.js items als ze beschikbaar zijn
+  // Datum-strings in Amsterdam-tijdzone (YYYY-MM-DD)
+  const fmt = d => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Amsterdam" }).format(d);
+  const todayStr    = fmt(new Date());
+  const tomorrowStr = fmt(new Date(Date.now() + 86400000));
+
+  function getLabel(dateStr) {
+    if (dateStr === todayStr)    return ["Vandaag",   "vandaag"];
+    if (dateStr === tomorrowStr) return ["Morgen",    "morgen"];
+    // Zaterdag (6) of zondag (0) → "Dit weekend"
+    const dow = new Date(dateStr + "T12:00:00").getDay();
+    if (dow === 0 || dow === 6)  return ["Dit weekend", "weekend"];
+    return ["Binnenkort", "binnenkort"];
+  }
+
+  // Data laden
   let items = [];
-  if (Array.isArray(window.BREUKELEN_SPORT_AGENDA)) {
-    items = window.BREUKELEN_SPORT_AGENDA;
-  } else if (Array.isArray(window.BREUKELEN_SPORT)) {
-    // Fallback: oude uitslagen-structuur
-    items = window.BREUKELEN_SPORT;
+  if (Array.isArray(window.BREUKELEN_EVENTS)) {
+    items = window.BREUKELEN_EVENTS;
+  } else {
+    try {
+      const res = await fetch("data/events.json");
+      if (res.ok) items = await res.json();
+    } catch(_) {}
   }
 
-  if (!items || items.length === 0) {
-    list.innerHTML = `<li class="sport-empty">Geen sport dit weekend</li>`;
-    return;
-  }
-
-  // Toon aankomende items, max 4
-  const today = new Date(); today.setHours(0,0,0,0);
+  // Filter: vandaag of later, sorteer op datum, max 5
   const upcoming = items
-    .filter(e => new Date(e.date) >= today)
-    .sort((a, b) => new Date(a.date) - new Date(b.date))
-    .slice(0, 4);
+    .filter(e => e.date >= todayStr)
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .slice(0, 5);
 
   if (upcoming.length === 0) {
-    list.innerHTML = `<li class="sport-empty">Geen sport dit weekend gepland</li>`;
+    container.innerHTML = `
+      <p class="vandaag-leeg">Vandaag nog niets gevonden.</p>
+      <div class="vandaag-fallback">
+        <p class="vandaag-fallback-label">Bekijk de lokale agenda's:</p>
+        <ul class="vandaag-fallback-list">
+          <li><a href="https://www.varnws.nl/stichtsevecht/agenda" target="_blank" rel="noopener">VARnws Agenda</a></li>
+          <li><a href="https://www.viastichtsevecht.nl/agenda" target="_blank" rel="noopener">VIA Stichtse Vecht</a></li>
+          <li><a href="https://www.stichtsevecht.nl/belastingen-vergunningen-en-subsidies/vergunningen/evenement-organiseren/evenementenkalender" target="_blank" rel="noopener">Gemeente evenementenkalender</a></li>
+          <li><a href="https://bibliotheekuv.op-shop.nl" target="_blank" rel="noopener">Bibliotheek Utrechtse Venen</a></li>
+        </ul>
+      </div>`;
     return;
   }
 
-  list.innerHTML = "";
+  container.innerHTML = "";
   for (const item of upcoming) {
-    const date = new Date(item.date);
-    const dagKort = DAYS_NL[date.getDay()].slice(0, 2);
-    const li = document.createElement("li");
-    li.className = "sport-row";
-    li.innerHTML = `
-      <span class="sport-club">${escapeHtml(item.club || item.event || "")}</span>
-      ${item.source_url
-        ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noopener" class="sport-score-pill draw">${escapeHtml(dagKort)} ${date.getDate()}</a>`
-        : `<span class="sport-score-pill draw">${escapeHtml(dagKort)} ${date.getDate()}</span>`
-      }
-    `;
-    list.appendChild(li);
+    const [labelText, labelClass] = getLabel(item.date);
+    const el = document.createElement(item.source_url ? "a" : "div");
+    el.className = "vandaag-item";
+    if (item.source_url) { el.href = item.source_url; el.target = "_blank"; el.rel = "noopener"; }
+
+    const meta = [item.time, item.location].filter(Boolean).join(" · ");
+    el.innerHTML = `
+      <div class="vandaag-item-top">
+        <span class="vandaag-label ${labelClass}">${labelText}</span>
+        <span class="vandaag-title">${escapeHtml(item.title)}</span>
+      </div>
+      ${meta ? `<p class="vandaag-meta">${escapeHtml(meta)}</p>` : ""}`;
+    container.appendChild(el);
   }
 }
 
@@ -564,7 +587,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
   loadFotoVanDeWeek();
   loadFeitje();
-  loadSport();
+  loadVandaag();
   initDarkMode();
   initNavTabs();
   loadNSDisruptions();
