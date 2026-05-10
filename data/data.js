@@ -1,6 +1,6 @@
 /* Auto-gegenereerd door breukelen-nieuws-update. Niet handmatig bewerken. */
 
-window.BREUKELEN_WEATHER_TEXT = { "date": "2026-05-09", "text": "Vanavond is het helder en fris boven Stichtse Vecht, zo'n 14 graden — nog een mooie avond voor een wandeling langs de Vecht. Morgen (zondag) wordt bewolkt maar blijft het droog met een maximum van 15 graden; prima voor een uitstap naar de Bethunpolder of een bezoek aan Maarssendorp. Vanaf maandag schuift er motregen binnen met temperaturen rond de 12 graden — dan is de bibliotheek of een bakker in Loenen een fijne optie." };
+window.BREUKELEN_WEATHER_TEXT = { "date": "2026-05-10", "text": "Het is bewolkt boven de Vecht vandaag, maar gelukkig blijft de regen weg. De temperatuur klimt naar een graad of 15 — koel genoeg voor een flinke wandeling door de Bethunpolder of een bezoek aan het centrum van Maarssen. Trek een jasje aan en geniet van de stille zondagochtend langs het water!" };
 
 window.BREUKELEN_NEWS = [
   {
@@ -13,15 +13,6 @@ window.BREUKELEN_NEWS = [
     "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82270/cd899a8b/content/2026/5/b3f05146-dda1-4d25-94d8-78a5f9a34b2b"
   },
   {
-    "title": "Koordirigent Wim de Penning uit Kockengen viert 25-jarig jubileum",
-    "date": "2026-05-09",
-    "summary": "KOCKENGEN > Christelijk gemengde zangvereniging Excelsior uit Kockengen stond uitgebreid stil bij het vieren van dit jubileum.",
-    "source": "VARnws Stichtse Vecht",
-    "source_url": "https://www.varnws.nl/stichtsevecht/nieuws/55523/25-jarig-jubileum-koordirigent-en-musicus-wim-de-penning-in-k",
-    "category": "cultuur",
-    "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82271/cd899a8b/content/2026/5/8a9c68e7-8561-4cb6-af28-c4d4869805c4"
-  },
-  {
     "title": "Foto-expositie 'Breukelen in 2024' opent 1 juni bij Regionaal Archief",
     "date": "2026-05-09",
     "summary": "Vanaf maandag 1 juni presenteert fotograaf Gerhard Hof in het atrium van het Regionaal Archief Noordwest Utrecht de tentoonstelling 'Breukelen in 2024. Opmaat naar de toekomst'.",
@@ -29,6 +20,15 @@ window.BREUKELEN_NEWS = [
     "source_url": "https://rtvstichtsevecht.nl/nieuws/artikel/tentoonstelling-breukelen-in-2024-opmaat-naar-de-toekomst-bij-regionaal-archief-noordwest-utrecht",
     "category": "cultuur",
     "image_url": "https://3mfhdcm0onod.b-cdn.net/3r1ejv7usi5g/w_1200,h_630/gerhard-hof-overzichtsfoto-van-de-brand-in-de-voormalige-bibliotheek-in-breukelen-19-maart-2024.jpg"
+  },
+  {
+    "title": "Koordirigent Wim de Penning uit Kockengen viert 25-jarig jubileum",
+    "date": "2026-05-09",
+    "summary": "KOCKENGEN > Christelijk gemengde zangvereniging Excelsior uit Kockengen stond uitgebreid stil bij het vieren van dit jubileum.",
+    "source": "VARnws Stichtse Vecht",
+    "source_url": "https://www.varnws.nl/stichtsevecht/nieuws/55523/25-jarig-jubileum-koordirigent-en-musicus-wim-de-penning-in-k",
+    "category": "cultuur",
+    "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82271/cd899a8b/content/2026/5/8a9c68e7-8561-4cb6-af28-c4d4869805c4"
   },
   {
     "title": "Arjan van den Hoek keert terug als sluiswachter op de Mijndense Sluis",
@@ -40,7 +40,7 @@ window.BREUKELEN_NEWS = [
     "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82262/cd899a8b/content/2026/5/9db68a90-cd6d-43e3-abdc-bf18e47eb006"
   },
   {
-    "title": "N402 Straatweg tussen Maarssen en Breukelen volledig dicht van 1–22 juni",
+    "title": "N402 Straatweg Maarssen–Breukelen volledig dicht van 1 tot 22 juni",
     "date": "2026-05-08",
     "summary": "De provincie Utrecht voert van maandag 1 juni tot en met maandag 22 juni werkzaamheden uit aan de Straatweg (N402) tussen Maarssen en Breukelen. De weg is afgesloten, verkeer wordt omgeleid.",
     "source": "VARnws Stichtse Vecht",
@@ -57,6 +57,22 @@ window.BREUKELEN_NEWS = [
     "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82233/cd899a8b/content/2026/5/2f2e38e9-56b5-4672-84d0-b32540851b2c"
   },
   {
+    "title": "Groot vernieuwingsplan voor winkelcentrum Bisonspoor in Maarssenbroek",
+    "date": "2026-05-07",
+    "summary": "Het gebied rondom winkelcentrum Bisonspoor in Maarssenbroek wordt vernieuwd. Er komen veel nieuwe woningen, meer kantoorruimte en het politiebureau krijgt een nieuwe plek.",
+    "source": "Gemeente Stichtse Vecht",
+    "source_url": "https://www.stichtsevecht.nl/wonen-en-leefomgeving/projecten-en-wegwerkzaamheden/herinrichting-openbare-ruimte-bisonspoor",
+    "category": "economie"
+  },
+  {
+    "title": "Nieuwe beweegroute Breukelen start op 27 mei — aanmelden kan al",
+    "date": "2026-05-07",
+    "summary": "De groepen wandelen wekelijks op woensdag in het Henk van der Griftpark. Onderweg doen ze eenvoudige oefeningen met de coach die helpen bij het versterken van spieren en het verbeteren van de balans.",
+    "source": "Gemeente Stichtse Vecht",
+    "source_url": "https://www.stichtsevecht.nl/nieuws/meld-je-aan-27-mei-start-nieuwe-beweegroute-breukelen",
+    "category": "dorpsleven"
+  },
+  {
     "title": "Coalitieonderhandelingen Stichtse Vecht na meivakantie weer op gang",
     "date": "2026-05-07",
     "summary": "Na de meivakantie en de vrije dagen rond 4 en 5 mei zijn de gesprekken en onderhandelingen voor een nieuwe coalitie in Stichtse Vecht weer volop gaande.",
@@ -66,21 +82,12 @@ window.BREUKELEN_NEWS = [
     "image_url": "https://images.pubble.cloud/worker/jpg/quick/1920/82229/cd899a8b/content/2026/4/2ccc55d7-abea-4afa-afaa-b1d6f8390a6f"
   },
   {
-    "title": "Provincie biedt Stichtse Vecht-raad trainingen voor gesprekken met burgemeester",
+    "title": "Woningbouw Loenen aan de Vecht: Cronenburgh fase 4 gaat van start",
     "date": "2026-05-07",
-    "summary": "De Commissaris van de Koning Hans Oosters wil de nieuwe gemeenteraad van Stichtse Vecht helpen met de zogeheten 'klankbordgesprekken' met burgemeester Ap Reinders. De provincie betaalt de rekening wel.",
-    "source": "VARnws Stichtse Vecht",
-    "source_url": "https://www.varnws.nl/stichtsevecht/nieuws/55509/speciale-trainingen-voor-de-vertrouwelijke-gesprekken-gemeent",
-    "category": "politiek"
-  },
-  {
-    "title": "Nieuwe raad vergadert 12 mei: PVV brengt asiel en statushouders op agenda",
-    "date": "2026-05-07",
-    "summary": "BREUKELEN — De eerste reguliere raadsvergadering van de nieuwe gemeenteraad van Stichtse Vecht is dinsdag 12 mei live te volgen via het tv-programma Rondom de Raad. Op de agenda staan onder meer de benoeming van commissieleden, invulling van raadsorganen en twee voorstellen van de PVV over asielopvang en de huisvesting van statushouders.",
-    "source": "RTV Stichtse Vecht",
-    "source_url": "https://rtvstichtsevecht.nl/nieuws/artikel/rondom-de-raad-dinsdag-12-mei-live-bij-eerste-reguliere-raadsvergadering",
-    "category": "politiek",
-    "image_url": "https://3mfhdcm0onod.b-cdn.net/47eu7prlu54l/w_1200,h_630/1.jpg"
+    "summary": "Met de bouw van Cronenburgh fase 4 wordt de bestaande wijk Cronenburgh afgerond. Het woningbouwproject is belangrijk voor het dorp Loenen aan de Vecht, omdat er een grote behoefte is aan nieuwe woningen.",
+    "source": "Gemeente Stichtse Vecht",
+    "source_url": "https://www.stichtsevecht.nl/wonen-en-leefomgeving/projecten-in-stichtse-vecht/cronenburgh-fase-4",
+    "category": "dorpsleven"
   },
   {
     "title": "Bouw nieuw STAG-gebouw in Vreeland van start: eerste paal in de grond",
@@ -98,6 +105,22 @@ window.BREUKELEN_NEWS = [
     "source_url": "https://rtvstichtsevecht.nl/nieuws/artikel/boeiende-kastelendag-op-kasteel-loenersloot",
     "category": "cultuur",
     "image_url": "https://3mfhdcm0onod.b-cdn.net/5p8sq651ue3t/w_1200,h_630/img-6945.jpg"
+  },
+  {
+    "title": "Aansluitstop voor stroom raakt ook woningbouw in Stichtse Vecht",
+    "date": "2026-04-30",
+    "summary": "De aansluitstop zet de woningbouwopgave verder onder druk. Voor nu is gecommuniceerd dat geplande en bekende woningbouw doorgaat.",
+    "source": "Gemeente Stichtse Vecht",
+    "source_url": "https://www.stichtsevecht.nl/nieuws/aansluitstop-voor-stroom-in-provincie-utrecht-ook-gevolgen-voor-stichtse-vecht",
+    "category": "economie"
+  },
+  {
+    "title": "Meer egels in Stichtse Vecht — dit kun jij doen om ze te helpen",
+    "date": "2026-04-23",
+    "summary": "Het gaat niet goed met de egel in Nederland: de egel staat op de Rode Lijst van bedreigde diersoorten en er zijn steeds minder egels, onder andere door druk verkeer, minder insecten en tuinen die te netjes zijn.",
+    "source": "Gemeente Stichtse Vecht",
+    "source_url": "https://www.stichtsevecht.nl/nieuws/meer-egels-in-stichtse-vecht",
+    "category": "dorpsleven"
   }
 ];
 
@@ -184,7 +207,7 @@ window.BREUKELEN_EVENTS = [
     "time": "10:00 – 11:30",
     "location": "Henk van der Griftpark, Breukelen",
     "description": "Gratis en laagdrempelig samen bewegen met begeleiding in het Henk van der Griftpark. Aanmelden via de gemeente Stichtse Vecht.",
-    "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/5/27/start-nieuwe-beweeggroep-breukelen-55520"
+    "source_url": "https://www.stichtsevecht.nl/nieuws/meld-je-aan-27-mei-start-nieuwe-beweegroute-breukelen"
   },
   {
     "title": "Lezing Eric Simons over stress bij Boekhandel van Kralingen — gratis",
@@ -217,6 +240,14 @@ window.BREUKELEN_EVENTS = [
     "location": "Centrum Breukelen",
     "description": "Tweedehands boeken en vinyl in het centrum van Breukelen. Een dag voor liefhebbers van boeken, muziek en koopjes.",
     "source_url": "https://www.varnws.nl/stichtsevecht/agenda/2026/6/13/boeken-vinylmarkt-in-breukelen-55472"
+  },
+  {
+    "title": "Open Dag gemeente Stichtse Vecht",
+    "date": "2026-06-27",
+    "time": "11:00 – 16:00",
+    "location": "Gemeentehuis Stichtse Vecht, Maarssen",
+    "description": "Medewerkers van de gemeente vertellen over hun werk en lopende projecten. Je kunt kennismaken met het nieuwe gemeentebestuur en er staan optredens van lokale muziek-, zang- en dansverenigingen op het programma.",
+    "source_url": "https://www.stichtsevecht.nl/nieuws/kom-naar-de-open-dag-van-stichtse-vecht-op-zaterdag-27-juni"
   }
 ];
 
@@ -245,4 +276,10 @@ window.BREUKELEN_SPORT = [
     "club": "MHC Breukelen D1",
     "opponent": "HC Pinoke D2",
     "score_home": 4,
-    "score_a
+    "score_away": 2,
+    "home": true,
+    "competition": "Regio Utrecht Dames",
+    "date": "2026-05-03",
+    "source_url": "https://www.knhb.nl"
+  }
+];
