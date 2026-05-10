@@ -564,4 +564,10 @@ document.addEventListener("DOMContentLoaded", () => {
   loadWeather();
   loadNews();
   loadEvents();
-  loadFotoVanDeWeek()
+  loadFotoVanDeWeek();
+  loadFeitje();
+  loadSport();
+  initDarkMode();
+  initNavTabs();
+  loadNSDisruptions();
+});
